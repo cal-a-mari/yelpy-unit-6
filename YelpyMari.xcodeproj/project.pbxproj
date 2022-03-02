@@ -13,6 +13,8 @@
 		5E410D4D27B29BCD00E928D3 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410D4B27B29BCD00E928D3 /* RestaurantDetailViewController.swift */; };
 		5E410D5027B3E7DF00E928D3 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410D4F27B3E7DF00E928D3 /* RestaurantDetail.swift */; };
 		5E410D5227B3EF6200E928D3 /* RestaurantCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410D5127B3EF6200E928D3 /* RestaurantCollectionCell.swift */; };
+		9979DCB427CFD35800397C79 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9979DCB327CFD35800397C79 /* MapKit.framework */; };
+		9979DCB927CFDD1100397C79 /* RestaurantImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9979DCB827CFDD1100397C79 /* RestaurantImageViewController.swift */; };
 		99DA8F7A278F92940042681B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DA8F79278F92940042681B /* AppDelegate.swift */; };
 		99DA8F7C278F92940042681B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DA8F7B278F92940042681B /* SceneDelegate.swift */; };
 		99DA8F7E278F92940042681B /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DA8F7D278F92940042681B /* RestaurantsViewController.swift */; };
@@ -56,6 +58,8 @@
 		837718A49FE36653167CFD36 /* Pods_YelpyMari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelpyMari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		983C9E65B7848C253A0BA2D2 /* Pods-YelpyMariTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpyMariTests.debug.xcconfig"; path = "Target Support Files/Pods-YelpyMariTests/Pods-YelpyMariTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9971E3B75D9645719114AE8C /* Pods-YelpyMari-YelpyMariUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpyMari-YelpyMariUITests.debug.xcconfig"; path = "Target Support Files/Pods-YelpyMari-YelpyMariUITests/Pods-YelpyMari-YelpyMariUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9979DCB327CFD35800397C79 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9979DCB827CFDD1100397C79 /* RestaurantImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantImageViewController.swift; sourceTree = "<group>"; };
 		99DA8F76278F92940042681B /* YelpyMari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpyMari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DA8F79278F92940042681B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99DA8F7B278F92940042681B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9979DCB427CFD35800397C79 /* MapKit.framework in Frameworks */,
 				ABD0125E1863CCC0A6D90C22 /* Pods_YelpyMari.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +132,32 @@
 			path = "Restaurant Detail";
 			sourceTree = "<group>";
 		};
+		9979DCB527CFDC7400397C79 /* Restaurant Image */ = {
+			isa = PBXGroup;
+			children = (
+				9979DCB827CFDD1100397C79 /* RestaurantImageViewController.swift */,
+			);
+			path = "Restaurant Image";
+			sourceTree = "<group>";
+		};
+		9979DCB627CFDCB300397C79 /* Restaurant List */ = {
+			isa = PBXGroup;
+			children = (
+				99DA8F7D278F92940042681B /* RestaurantsViewController.swift */,
+				99DA8FAB278F9B320042681B /* RestaurantTableViewCell.swift */,
+				99DA8FAD278FC4BE0042681B /* RestaurantListItem.swift */,
+			);
+			path = "Restaurant List";
+			sourceTree = "<group>";
+		};
+		9979DCB727CFDCDD00397C79 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				99DA8FAF278FC6930042681B /* RestaurantService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		99DA8F6D278F92940042681B = {
 			isa = PBXGroup;
 			children = (
@@ -152,13 +183,12 @@
 		99DA8F78278F92940042681B /* YelpyMari */ = {
 			isa = PBXGroup;
 			children = (
+				9979DCB627CFDCB300397C79 /* Restaurant List */,
 				5E410D4827B29A0D00E928D3 /* Restaurant Detail */,
+				9979DCB527CFDC7400397C79 /* Restaurant Image */,
+				9979DCB727CFDCDD00397C79 /* Networking */,
 				99DA8F79278F92940042681B /* AppDelegate.swift */,
 				99DA8F7B278F92940042681B /* SceneDelegate.swift */,
-				99DA8F7D278F92940042681B /* RestaurantsViewController.swift */,
-				99DA8FAB278F9B320042681B /* RestaurantTableViewCell.swift */,
-				99DA8FAF278FC6930042681B /* RestaurantService.swift */,
-				99DA8FAD278FC4BE0042681B /* RestaurantListItem.swift */,
 				99DA8F7F278F92940042681B /* Main.storyboard */,
 				99DA8F82278F92960042681B /* Assets.xcassets */,
 				99DA8F84278F92960042681B /* LaunchScreen.storyboard */,
@@ -189,6 +219,7 @@
 		B1418A4145FEF82DF94FFDB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9979DCB327CFD35800397C79 /* MapKit.framework */,
 				837718A49FE36653167CFD36 /* Pods_YelpyMari.framework */,
 				05A48265ABEE559C9836B22D /* Pods_YelpyMari_YelpyMariUITests.framework */,
 				C68606E1BCF8053338871C64 /* Pods_YelpyMariTests.framework */,
@@ -436,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99DA8FAE278FC4BE0042681B /* RestaurantListItem.swift in Sources */,
+				9979DCB927CFDD1100397C79 /* RestaurantImageViewController.swift in Sources */,
 				99DA8FAC278F9B320042681B /* RestaurantTableViewCell.swift in Sources */,
 				99DA8F7E278F92940042681B /* RestaurantsViewController.swift in Sources */,
 				99DA8F7A278F92940042681B /* AppDelegate.swift in Sources */,

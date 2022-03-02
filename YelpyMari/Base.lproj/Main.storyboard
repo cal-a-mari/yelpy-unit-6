@@ -196,7 +196,7 @@
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MH5-su-fDb">
-                                <rect key="frame" x="4" y="416" width="406" height="200"/>
+                                <rect key="frame" x="4" y="535.5" width="406" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="rRX-Sh-giA"/>
@@ -264,24 +264,36 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2D-oo-aZG">
-                                <rect key="frame" x="20" y="387" width="57.5" height="20.5"/>
+                                <rect key="frame" x="20" y="506.5" width="57.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="H3k-nw-EMR">
+                                <rect key="frame" x="0.0" y="344.5" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="iha-65-ARM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="6vx-Yw-Bx2" id="ESB-Es-rTr"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C64-0R-2eJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aWc-sz-Feq" firstAttribute="leading" secondItem="C64-0R-2eJ" secondAttribute="leading" id="50J-EH-Bbd"/>
+                            <constraint firstItem="H3k-nw-EMR" firstAttribute="leading" secondItem="C64-0R-2eJ" secondAttribute="leading" id="H6C-Bj-uG1"/>
                             <constraint firstItem="U2k-Ij-2PF" firstAttribute="top" secondItem="aWc-sz-Feq" secondAttribute="bottom" constant="-43" id="HMV-Zd-z3X"/>
                             <constraint firstItem="MH5-su-fDb" firstAttribute="leading" secondItem="C64-0R-2eJ" secondAttribute="leading" constant="4" id="Lap-hL-XDH"/>
                             <constraint firstItem="5zC-YO-EUd" firstAttribute="leading" secondItem="C64-0R-2eJ" secondAttribute="leading" constant="20" id="OdG-Ad-qP4"/>
                             <constraint firstItem="5zC-YO-EUd" firstAttribute="top" secondItem="U2k-Ij-2PF" secondAttribute="bottom" constant="30.5" id="Sjq-L8-J5A"/>
+                            <constraint firstItem="C64-0R-2eJ" firstAttribute="trailing" secondItem="H3k-nw-EMR" secondAttribute="trailing" id="Uyk-9H-nTX"/>
+                            <constraint firstItem="t2D-oo-aZG" firstAttribute="top" secondItem="H3k-nw-EMR" secondAttribute="bottom" constant="12" id="Yb8-Kg-gTa"/>
                             <constraint firstItem="aWc-sz-Feq" firstAttribute="trailing" secondItem="C64-0R-2eJ" secondAttribute="trailing" id="a9i-m4-Dl3"/>
-                            <constraint firstItem="MH5-su-fDb" firstAttribute="top" secondItem="5zC-YO-EUd" secondAttribute="bottom" constant="83.5" id="bZo-3r-9JE"/>
                             <constraint firstItem="MH5-su-fDb" firstAttribute="top" secondItem="t2D-oo-aZG" secondAttribute="bottom" constant="8.5" id="jo2-55-wkC"/>
                             <constraint firstItem="U2k-Ij-2PF" firstAttribute="leading" secondItem="C64-0R-2eJ" secondAttribute="leading" constant="20" id="l7t-0E-fVQ"/>
+                            <constraint firstItem="H3k-nw-EMR" firstAttribute="top" secondItem="5zC-YO-EUd" secondAttribute="bottom" constant="12" id="mtH-tR-pxJ"/>
                             <constraint firstItem="C64-0R-2eJ" firstAttribute="trailing" secondItem="MH5-su-fDb" secondAttribute="trailing" constant="4" id="n4u-rv-LL8"/>
                             <constraint firstItem="5zC-YO-EUd" firstAttribute="centerX" secondItem="mfg-WD-vw5" secondAttribute="centerX" id="olD-qn-V7H"/>
                             <constraint firstItem="C64-0R-2eJ" firstAttribute="trailing" secondItem="U2k-Ij-2PF" secondAttribute="trailing" constant="20" id="pOf-RV-Isn"/>
@@ -294,13 +306,31 @@
                         <outlet property="imageCollectionView" destination="MH5-su-fDb" id="Idl-xp-j1M"/>
                         <outlet property="isOpenLabel" destination="aC8-e2-CD9" id="Ngl-aY-eMQ"/>
                         <outlet property="mainImageView" destination="aWc-sz-Feq" id="hCL-xQ-hfB"/>
+                        <outlet property="mapView" destination="H3k-nw-EMR" id="E1x-7b-RZ1"/>
                         <outlet property="nameLabel" destination="U2k-Ij-2PF" id="QD6-bc-xxf"/>
                         <outlet property="priceRangeLabel" destination="OWA-3Y-XEM" id="ojq-Hc-j6K"/>
+                        <segue destination="Umt-bB-NBi" kind="show" identifier="RestaurantImageViewControllerSegue" id="pBZ-Lu-Obx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrf-bC-i42" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143" y="-234"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OG4-vt-4iC">
+            <objects>
+                <viewController id="Umt-bB-NBi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QaQ-is-Wkn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bM0-D0-iQO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y2Y-3g-uKb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D19-SE-rtH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991" y="-234"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
