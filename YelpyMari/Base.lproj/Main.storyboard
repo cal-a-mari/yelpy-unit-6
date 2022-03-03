@@ -316,17 +316,45 @@
             </objects>
             <point key="canvasLocation" x="1143" y="-234"/>
         </scene>
-        <!--View Controller-->
+        <!--Restaurant Image View Controller-->
         <scene sceneID="OG4-vt-4iC">
             <objects>
-                <viewController id="Umt-bB-NBi" sceneMemberID="viewController">
+                <viewController id="Umt-bB-NBi" customClass="RestaurantImageViewController" customModule="YelpyMari" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QaQ-is-Wkn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fyR-ge-Uj9">
+                                <rect key="frame" x="107" y="50" width="200" height="200"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Rk6-at-0sk"/>
+                                    <constraint firstAttribute="width" constant="200" id="Ynm-Mw-iPD"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOc-Ve-6PO">
+                                <rect key="frame" x="148.5" y="262" width="117" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Choose Image"/>
+                                <connections>
+                                    <action selector="didTapChooseImageButton:" destination="Umt-bB-NBi" eventType="touchUpInside" id="mfX-YZ-MkW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bM0-D0-iQO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eOc-Ve-6PO" firstAttribute="top" secondItem="fyR-ge-Uj9" secondAttribute="bottom" constant="12" id="0lP-zv-eFP"/>
+                            <constraint firstItem="eOc-Ve-6PO" firstAttribute="centerX" secondItem="QaQ-is-Wkn" secondAttribute="centerX" id="2mW-KL-ggK"/>
+                            <constraint firstItem="fyR-ge-Uj9" firstAttribute="top" secondItem="bM0-D0-iQO" secondAttribute="top" constant="50" id="hwz-yc-5ak"/>
+                            <constraint firstItem="fyR-ge-Uj9" firstAttribute="centerX" secondItem="QaQ-is-Wkn" secondAttribute="centerX" id="i54-iY-eQh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y2Y-3g-uKb"/>
+                    <connections>
+                        <outlet property="chooseImageButton" destination="eOc-Ve-6PO" id="fzt-vU-YU6"/>
+                        <outlet property="imageView" destination="fyR-ge-Uj9" id="fwV-bT-eYI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D19-SE-rtH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -339,6 +367,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

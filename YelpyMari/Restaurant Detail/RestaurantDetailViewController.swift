@@ -11,7 +11,9 @@ import MapKit
 
 final class RestaurantDetailViewController: UIViewController {
   /// Photo URLs to be use for fetching Restaurant images
-  var photoURLs: [String] = []
+  private var photoURLs: [String] = []
+  private var mapAnnotationView: MKAnnotationView?
+  private static let annotationViewIdentifier = "MapAnnotationViewIdentifier"
   
   // MARK: IBOutlets
   @IBOutlet weak var mainImageView: UIImageView!
@@ -80,13 +82,18 @@ extension RestaurantDetailViewController: UICollectionViewDataSource {
 extension RestaurantDetailViewController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     // Step 4: Create a custom view for the restaurant annotation
-    let annotationView = MKPinAnnotationView(annotation: annotation,
-                                             reuseIdentifier: "AnnotationViewReuseIdentifier")
-    annotationView.canShowCallout = true
-    let annotationViewButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0))
-    annotationViewButton.setImage(UIImage(named: "camera"), for: .normal)
-    annotationView.leftCalloutAccessoryView = annotationViewButton
-    return annotationView
+    mapAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Self.annotationViewIdentifier)
+    
+    if mapAnnotationView == nil {
+      mapAnnotationView = MKPinAnnotationView(annotation: annotation,
+                                               reuseIdentifier: "AnnotationViewReuseIdentifier")
+      mapAnnotationView?.canShowCallout = true
+      let annotationViewButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0))
+      annotationViewButton.setImage(UIImage(named: "camera"), for: .normal)
+      mapAnnotationView?.leftCalloutAccessoryView = annotationViewButton
+    }
+
+    return mapAnnotationView
   }
   
   func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -94,5 +101,17 @@ extension RestaurantDetailViewController: MKMapViewDelegate {
     performSegue(withIdentifier: "RestaurantImageViewControllerSegue", sender: nil)
   }
   
-  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let imageViewController = segue.destination as! RestaurantImageViewController
+    imageViewController.delegate = self
+  }
+}
+
+extension RestaurantDetailViewController: RestaurantImageViewControllerDelegate {
+  // Step 9: Update annotation view based on chosen image
+  func restaurantImageViewController(_ restaurantImageViewController: UIViewController, didSelectImage image: UIImage) {
+    let annotationViewButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0))
+    annotationViewButton.setImage(image, for: .normal)
+    mapAnnotationView?.leftCalloutAccessoryView = annotationViewButton
+  }
 }
