@@ -1,2 +1,2 @@
 # yelpy-unit-6
-This adds a map view and image uploading to the Yelpy app
+This plays around with a map view and adding annotations in the Yelpy app
